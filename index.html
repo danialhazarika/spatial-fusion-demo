@@ -112,9 +112,9 @@ function genPreds(pos){
   const zR=BOUNDS[5]-BOUNDS[4];
   for(let i=0;i<N;i++){
     const x=pos[i*3],y=pos[i*3+1],z=pos[i*3+2],zN=(z-BOUNDS[4])/zR,r=Math.random();
-    if(zN>0.8)pn2[i]=0;else if(zN<0.15)pn2[i]=1;else if(Math.abs(x)>3.5||Math.abs(y)>3)pn2[i]=2;
-    else if(r<0.42)pn2[i]=8;else if(r<0.62)pn2[i]=12;else if(r<0.77)pn2[i]=9;else if(r<0.88)pn2[i]=7;else pn2[i]=2;
-    if(zN>0.82)pns[i]=0;else if(zN<0.12)pns[i]=1;else if(r<0.6)pns[i]=12;else if(r<0.72)pns[i]=2;else if(r<0.82)pns[i]=1;else pns[i]=12;
+    if(zN>0.92)pn2[i]=0;else if(zN<0.07)pn2[i]=1;else if((Math.abs(x)>3.5||Math.abs(y)>3.2)&&r<0.85)pn2[i]=2;
+    else if(r<0.34)pn2[i]=8;else if(r<0.65)pn2[i]=12;else if(r<0.80)pn2[i]=9;else if(r<0.87)pn2[i]=7;else pn2[i]=2;
+    if(zN>0.91)pns[i]=0;else if(zN<0.09)pns[i]=1;else if(r<0.63)pns[i]=12;else if(r<0.76)pns[i]=2;else if(r<0.84)pns[i]=10;else if(r<0.91)pns[i]=8;else pns[i]=12;
   }return{pn2,pns}
 }
 function predCol(pr){const c=new Float32Array(N*3);for(let i=0;i<N;i++){const cc=CCOLS[pr[i]];c[i*3]=cc[0]/255;c[i*3+1]=cc[1]/255;c[i*3+2]=cc[2]/255}return c}
